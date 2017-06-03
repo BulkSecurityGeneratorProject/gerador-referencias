@@ -1,6 +1,6 @@
 {
     "home": {
-        "title": "Bem vindo, Java Hipster!",
+        "title": "Bem vindo, Gerador de Referências!",
         "subtitle": "Esta é  a página principal",
         "logged": {
             "message": "Você está logado como \"{{username}}\"."
@@ -14,6 +14,7 @@
             "follow": "contate @java_hipster on Twitter"
         },
         "like": "Se você gosta do JHipster, não se esqueça de avaliar no",
-        "github": "GitHub"
+        "github": "GitHub",
+        "btnGenerate": "Gerar Referência"
     }
 }
