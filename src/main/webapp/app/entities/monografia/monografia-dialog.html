@@ -1,0 +1,104 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myMonografiaLabel" data-translate="geradorReferenciasApp.monografia.home.createOrEditLabel">Create or edit a Monografia</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.monografia.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.monografia.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="geradorReferenciasApp.monografia.titulo" for="field_titulo">Titulo</label>
+            <input type="text" class="form-control" name="titulo" id="field_titulo"
+                    ng-model="vm.monografia.titulo"
+                    required/>
+            <div ng-show="editForm.titulo.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.titulo.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="geradorReferenciasApp.monografia.subtitulo" for="field_subtitulo">Subtitulo</label>
+            <input type="text" class="form-control" name="subtitulo" id="field_subtitulo"
+                    ng-model="vm.monografia.subtitulo"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="geradorReferenciasApp.monografia.edicao" for="field_edicao">Edicao</label>
+            <input type="text" class="form-control" name="edicao" id="field_edicao"
+                    ng-model="vm.monografia.edicao"
+                    required/>
+            <div ng-show="editForm.edicao.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.edicao.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="geradorReferenciasApp.monografia.local" for="field_local">Local</label>
+            <input type="text" class="form-control" name="local" id="field_local"
+                    ng-model="vm.monografia.local"
+                    required/>
+            <div ng-show="editForm.local.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.local.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="geradorReferenciasApp.monografia.editora" for="field_editora">Editora</label>
+            <input type="text" class="form-control" name="editora" id="field_editora"
+                    ng-model="vm.monografia.editora"
+                    required/>
+            <div ng-show="editForm.editora.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.editora.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="geradorReferenciasApp.monografia.dataPublicacao" for="field_dataPublicacao">Data Publicacao</label>
+            <input type="text" class="form-control" name="dataPublicacao" id="field_dataPublicacao"
+                    ng-model="vm.monografia.dataPublicacao"
+                    required/>
+            <div ng-show="editForm.dataPublicacao.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.dataPublicacao.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="geradorReferenciasApp.monografia.paginas" for="field_paginas">Paginas</label>
+            <input type="text" class="form-control" name="paginas" id="field_paginas"
+                    ng-model="vm.monografia.paginas"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="geradorReferenciasApp.monografia.volumes" for="field_volumes">Volumes</label>
+            <input type="text" class="form-control" name="volumes" id="field_volumes"
+                    ng-model="vm.monografia.volumes"
+                    />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

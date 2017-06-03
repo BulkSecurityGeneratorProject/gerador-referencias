@@ -1,0 +1,70 @@
+<div>
+    <h2 data-translate="geradorReferenciasApp.monografia.home.title">Monografias</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="monografia.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="geradorReferenciasApp.monografia.home.createLabel">
+                        Create new Monografia
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="geradorReferenciasApp.monografia.titulo">Titulo</span></th>
+                    <th><span data-translate="geradorReferenciasApp.monografia.subtitulo">Subtitulo</span></th>
+                    <th><span data-translate="geradorReferenciasApp.monografia.edicao">Edicao</span></th>
+                    <th><span data-translate="geradorReferenciasApp.monografia.local">Local</span></th>
+                    <th><span data-translate="geradorReferenciasApp.monografia.editora">Editora</span></th>
+                    <th><span data-translate="geradorReferenciasApp.monografia.dataPublicacao">Data Publicacao</span></th>
+                    <th><span data-translate="geradorReferenciasApp.monografia.paginas">Paginas</span></th>
+                    <th><span data-translate="geradorReferenciasApp.monografia.volumes">Volumes</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="monografia in vm.monografias track by monografia.id">
+                    <td><a ui-sref="monografia-detail({id:monografia.id})">{{monografia.id}}</a></td>
+                    <td>{{monografia.titulo}}</td>
+                    <td>{{monografia.subtitulo}}</td>
+                    <td>{{monografia.edicao}}</td>
+                    <td>{{monografia.local}}</td>
+                    <td>{{monografia.editora}}</td>
+                    <td>{{monografia.dataPublicacao}}</td>
+                    <td>{{monografia.paginas}}</td>
+                    <td>{{monografia.volumes}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="monografia-detail({id:monografia.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="monografia.edit({id:monografia.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="monografia.delete({id:monografia.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

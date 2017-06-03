@@ -1,0 +1,28 @@
+{
+    "geradorReferenciasApp": {
+        "monografia" : {
+            "home": {
+                "title": "Monografias",
+                "createLabel": "Criar novo Monografia",
+                "createOrEditLabel": "Criar ou editar Monografia"
+            },
+            "created": "Um novo Monografia é criado com o identificador {{ param }}",
+            "updated": "Um Monografia é atualizado com o identificador {{ param }}",
+            "deleted": "Um Monografia é deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Monografia {{ id }}?"
+            },
+            "detail": {
+                "title": "Monografia"
+            },
+            "titulo": "Titulo",
+            "subtitulo": "Subtitulo",
+            "edicao": "Edicao",
+            "local": "Local",
+            "editora": "Editora",
+            "dataPublicacao": "Data Publicacao",
+            "paginas": "Paginas",
+            "volumes": "Volumes"
+        }
+    }
+}
