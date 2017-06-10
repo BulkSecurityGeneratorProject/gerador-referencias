@@ -15,14 +15,15 @@
             "detail": {
                 "title": "Monografia"
             },
-            "titulo": "Titulo",
-            "subtitulo": "Subtitulo",
-            "edicao": "Edicao",
-            "local": "Local",
-            "editora": "Editora",
-            "dataPublicacao": "Data Publicacao",
-            "paginas": "Paginas",
-            "volumes": "Volumes"
+            "titulo": "Título (obrigatório)",
+            "subtitulo": "Subtitle",
+            "edicao": "Edição",
+            "local": "Local (obrigatório)",
+            "editora": "Editora (obrigatório)",
+            "dataPublicacao": "Data da Publicação (obrigatório)",
+            "paginas": "Páginas",
+            "volumes": "Volumes",
+            "formattedReference": "Referência Formatada"
         }
     }
 }

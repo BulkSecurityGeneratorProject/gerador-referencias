@@ -1,0 +1,20 @@
+{
+    "geradorReferenciasApp": {
+        "generator" : {
+            "home": {
+                "title": "Generate Reference",
+                "referenceType": "Reference Type",
+                "reference": "Reference"
+            },
+            "author": {
+                "title": "Authors",
+                "createAuthor": "Add Author",
+                "lastName": "Last Name",
+                "preNames": "Pre Names",
+                "type": "Author Type",
+                "entityName": "Entity Name"
+            }
+
+        }
+    }
+}

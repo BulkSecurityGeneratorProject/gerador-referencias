@@ -1,0 +1,107 @@
+
+<form name="generatorForm" role="form" novalidate ng-submit="vm.formatarReferencia()" show-validation>
+    <div class="modal-body">
+
+        <div class="form-group">
+            <label class="control-label" style="width: 100%;" data-translate="geradorReferenciasApp.generator.author.title" for="field_autores">Autores</label>
+            <div ng-repeat="item in vm.monografia.authors" ng-show="vm.monografia.authors.length > 0">
+                <input type="text" class="form-control" style="width:75%; display: inline" name="autor"
+                    ng-value="item" readonly>
+                <button class="btn glyphicon glyphicon-minus" ng-click="vm.removerAutor($index)"></button>
+            </div>
+            <input type="text" class="form-control" name="autores" id="field_autores"
+                    ng-model="vm.monografia.autores" style="width: 75%; display: inline"
+                    readonly/>
+            <button class="btn glyphicon glyphicon-plus" ui-sref="autor-new"></button>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" data-translate="geradorReferenciasApp.monografia.titulo" for="field_titulo">Titulo</label>
+            <input type="text" class="form-control" name="titulo" id="field_titulo"
+                    ng-model="vm.monografia.titulo"
+                    required/>
+            <div ng-show="generatorForm.titulo.$invalid">
+                <p class="help-block"
+                    ng-show="generatorForm.titulo.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="geradorReferenciasApp.monografia.subtitulo" for="field_subtitulo">Subtitulo</label>
+            <input type="text" class="form-control" name="subtitulo" id="field_subtitulo"
+                    ng-model="vm.monografia.subtitulo"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="geradorReferenciasApp.monografia.edicao" for="field_edicao">Edicao</label>
+            <input type="text" class="form-control" name="edicao" id="field_edicao"
+                    ng-model="vm.monografia.edicao"/>
+            <div ng-show="generatorForm.edicao.$invalid">
+                <p class="help-block"
+                    ng-show="generatorForm.edicao.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="geradorReferenciasApp.monografia.local" for="field_local">Local</label>
+            <input type="text" class="form-control" name="local" id="field_local"
+                    ng-model="vm.monografia.local" required/>
+            <div ng-show="generatorForm.local.$invalid">
+                <p class="help-block"
+                    ng-show="generatorForm.local.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="geradorReferenciasApp.monografia.editora" for="field_editora">Editora</label>
+            <input type="text" class="form-control" name="editora" id="field_editora"
+                    ng-model="vm.monografia.editora"
+                    required/>
+            <div ng-show="generatorForm.editora.$invalid">
+                <p class="help-block"
+                    ng-show="generatorForm.editora.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="geradorReferenciasApp.monografia.dataPublicacao" for="field_dataPublicacao">Data Publicacao</label>
+            <input type="text" class="form-control" name="dataPublicacao" id="field_dataPublicacao"
+                    ng-model="vm.monografia.dataPublicacao"
+                    required/>
+            <div ng-show="generatorForm.dataPublicacao.$invalid">
+                <p class="help-block"
+                    ng-show="generatorForm.dataPublicacao.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="geradorReferenciasApp.monografia.paginas" for="field_paginas">Paginas</label>
+            <input type="text" class="form-control" name="paginas" id="field_paginas"
+                    ng-model="vm.monografia.paginas"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="geradorReferenciasApp.monografia.volumes" for="field_volumes">Volumes</label>
+            <input type="text" class="form-control" name="volumes" id="field_volumes"
+                    ng-model="vm.monografia.volumes"/>
+        </div>
+        <div class="form-group" ng-show="vm.isValid(vm.referenciaFormatada)">
+            <label class="control-label" data-translate="geradorReferenciasApp.monografia.formattedReference" for="field_referenciaFormatada"></label>
+            <textarea class="form-control" id="field_referenciaFormatada" name="referenciaFormatada" ng-model="vm.referenciaFormatada" readonly></textarea>
+        <div>
+
+        </div>
+
+    </div>
+    <div class="text-right">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="generatorForm.$invalid || vm.monografia.authors.length == 0" class="btn btn-primary">
+            <span class="glyphicon glyphicon-book"></span>&nbsp;<span data-translate="entity.action.generate">Generate</span>
+        </button>
+    </div>
+</form>

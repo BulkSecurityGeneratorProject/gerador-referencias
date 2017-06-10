@@ -90,7 +90,8 @@
             "edit": "Editar",
             "open": "Open",
             "save": "Salvar",
-            "view": "Visualizar"
+            "view": "Visualizar",
+            "generate": "Gerar"
         },
         "detail": {
             "field": "Campo",

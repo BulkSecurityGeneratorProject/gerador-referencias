@@ -1,0 +1,18 @@
+<div ng-cloak>
+    <h2 data-translate="geradorReferenciasApp.generator.home.title">Generate Reference</h2>
+
+    <div class="form-group" style="margin: 25px 0;">
+        <label style="margin-right: 10px;" data-translate="geradorReferenciasApp.generator.home.referenceType">Tipo Referência</label>
+        <select class="form-control" ng-model="vm.tipoReferencia" style="width: 40%;display: inline;">
+            <option value="Monografia">Monografia</option>
+        </select>
+    </div>
+
+    <p>
+        <h4>{{'geradorReferenciasApp.generator.home.reference' | translate}} {{vm.tipoReferencia}}</h4>
+    </p>
+
+    <div ng-show="vm.tipoReferencia == 'Monografia'">
+        <ng-include src="'app/entities/generator/monografia/monografia-generator.html'"></ng-include>
+    </div>
+</div>

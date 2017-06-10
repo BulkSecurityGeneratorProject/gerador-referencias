@@ -1,0 +1,76 @@
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myMonografiaLabel" data-translate="geradorReferenciasApp.generator.author.createAuthor">Add Author</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <h5 data-translate="geradorReferenciasApp.generator.author.type">Author Type</h5>
+            <div class="radio" style="width:45%; display: inline">
+                <label>
+                    <input type="radio" name="tipoAutor" value="pessoa" ng-model="vm.tipoAutor">
+                    Autor Pessoa
+                </label>
+            </div>
+            <div class="radio" style="width:45%; display: inline">
+                <label>
+                    <input type="radio" name="tipoAutor" value="entidade" ng-model="vm.tipoAutor">
+                    Autor Entidade
+                </label>
+            </div>
+        </div>
+
+        <div ng-if="vm.tipoAutor == 'pessoa'">
+            <div class="form-group">
+                <label class="control-label" data-translate="geradorReferenciasApp.generator.author.lastName" for="field_titulo">Last Name</label>
+                <input type="text" class="form-control" name="titulo" id="field_titulo" ng-model="vm.author.lastName"
+                       ng-change="vm.author.lastName = vm.author.lastName.toUpperCase()" required/>
+                <div ng-show="editForm.titulo.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.titulo.$error.required" data-translate="entity.validation.required">
+                        This field is required.
+                    </p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" data-translate="geradorReferenciasApp.generator.author.preNames" for="field_edicao">Pre names</label>
+                <input type="text" class="form-control" name="edicao" id="field_edicao" ng-model="vm.author.preNames"
+                       required/>
+                <div ng-show="editForm.edicao.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.edicao.$error.required" data-translate="entity.validation.required">
+                        This field is required.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div ng-if="vm.tipoAutor == 'entidade'">
+            <div class="form-group">
+                <label class="control-label" data-translate="geradorReferenciasApp.generator.author.entityName" for="entityName">Entity Name</label>
+                <input type="text" class="form-control" name="entityName" id="entityName" ng-model="vm.author.entity"
+                       ng-change="vm.author.entity = vm.author.entity.toUpperCase()" required/>
+                <div ng-show="editForm.entityName.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.entityName.$error.required" data-translate="entity.validation.required">
+                        This field is required.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
+

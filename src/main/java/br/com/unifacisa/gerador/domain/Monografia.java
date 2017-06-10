@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -21,13 +22,16 @@ public class Monografia implements Serializable {
     private String id;
 
     @NotNull
+    @Field("autores")
+    private List<String> autores;
+
+    @NotNull
     @Field("titulo")
     private String titulo;
 
     @Field("subtitulo")
     private String subtitulo;
 
-    @NotNull
     @Field("edicao")
     private String edicao;
 
@@ -58,6 +62,14 @@ public class Monografia implements Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public List<String> getAutores() {
+        return autores;
+    }
+
+    public void setAutores(List<String> autores) {
+        this.autores = autores;
     }
 
     public String getTitulo() {
