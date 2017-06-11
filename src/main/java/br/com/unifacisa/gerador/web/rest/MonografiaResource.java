@@ -116,4 +116,11 @@ public class MonografiaResource {
         monografiaRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id)).build();
     }
+
+    @GetMapping("/monografias/getAllByUserId/{userId}")
+    @Timed
+    public List<Monografia> getAllByUserId(@PathVariable String userId){
+        List<Monografia> teste = monografiaRepository.findAllByUserId(userId);
+        return teste;
+    }
 }

@@ -20,7 +20,12 @@
                     return data;
                 }
             },
-            'update': { method:'PUT' }
+            'update': { method:'PUT' },
+            'getByUserId': {
+                url: 'api/monografias/getAllByUserId/:userId',
+                method: 'GET',
+                isArray: true
+            }
         });
     }
 })();

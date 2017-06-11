@@ -5,9 +5,9 @@
         .module('geradorReferenciasApp')
         .controller('MonografiaController', MonografiaController);
 
-    MonografiaController.$inject = ['Monografia'];
+    MonografiaController.$inject = ['Monografia', 'Principal', 'AlertService', '$localStorage', '$rootScope'];
 
-    function MonografiaController(Monografia) {
+    function MonografiaController(Monografia, Principal, AlertService, $localStorage, $rootScope) {
 
         var vm = this;
 
@@ -16,10 +16,17 @@
         loadAll();
 
         function loadAll() {
-            Monografia.query(function(result) {
-                vm.monografias = result;
-                vm.searchQuery = null;
+            Principal.identity().then(function (account) {
+                Monografia.getByUserId({userId:account.id}, onSuccess, onError);
             });
+        }
+
+        function onSuccess(result){
+            vm.monografias = result;
+        }
+
+        function onError(error){
+            AlertService.error(error.data.message);
         }
     }
 })();

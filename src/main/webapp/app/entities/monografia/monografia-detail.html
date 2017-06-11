@@ -36,16 +36,15 @@
         <dd>
             <span>{{vm.monografia.volumes}}</span>
         </dd>
+        <dt><span data-translate="geradorReferenciasApp.monografia.formattedReference">Formatted Reference</span></dt>
+        <dd>
+            <span>{{vm.monografia.referenciaFormatada}}</span>
+        </dd>
     </dl>
 
     <button type="submit"
             ui-sref="{{ vm.previousState }}"
             class="btn btn-info">
         <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
-    </button>
-
-    <button type="button" ui-sref="monografia-detail.edit({id:vm.monografia.id})" class="btn btn-primary">
-        <span class="glyphicon glyphicon-pencil"></span>
-        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
     </button>
 </div>

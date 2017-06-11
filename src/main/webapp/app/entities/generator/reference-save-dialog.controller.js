@@ -26,6 +26,7 @@
         }
 
         vm.openLogin = function(){
+            console.log("openLogin");
             LoginService.open();
         }
 
