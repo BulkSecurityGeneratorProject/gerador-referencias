@@ -47,7 +47,24 @@
                     $state.go('generator');
                 });
             }]
-        });
+        })
+            .state('reference-save', {
+                parent: 'generator',
+                url: '/reference/save',
+                onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                    $uibModal.open({
+                        templateUrl: 'app/entities/generator/reference-save-dialog.html',
+                        controller: 'ReferenceSaveDialogController',
+                        controllerAs: 'vm',
+                        backdrop: 'static',
+                        size: 'lg',
+                    }).result.then(function() {
+                        $state.go('generator', null, { reload: 'generator' });
+                    }, function() {
+                        $state.go('generator');
+                    });
+                }]
+            });
     }
 
 })();

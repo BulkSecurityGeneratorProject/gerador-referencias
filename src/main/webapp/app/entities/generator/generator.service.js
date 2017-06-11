@@ -2,11 +2,11 @@
     'use strict';
     angular
         .module('geradorReferenciasApp')
-        .factory('Monografia', Monografia);
+        .factory('Generator', Generator);
 
-    Monografia.$inject = ['$resource'];
+    Generator.$inject = ['$resource'];
 
-    function Monografia ($resource) {
+    function Generator ($resource) {
         var resourceUrl =  'api/monografias/:id';
 
         return $resource(resourceUrl, {}, {

@@ -13,6 +13,14 @@
                 "preNames": "Pré Nomes",
                 "type": "Tipo de Autor",
                 "entityName": "Nome da Entidade"
+            },
+            "messages": {
+                "saveSuccess": "Referência salva com sucesso"
+            },
+            "dialog":{
+                "title": "Confirma salvar Referência",
+                "confirm": "Tem certeza de que deseja salvar esta Referência?",
+                "needLogged": "Para salvar uma referência, você precisa estar logado!"
             }
         }
     }

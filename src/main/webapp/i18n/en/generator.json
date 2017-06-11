@@ -13,6 +13,14 @@
                 "preNames": "Pre Names",
                 "type": "Author Type",
                 "entityName": "Entity Name"
+            },
+            "messages": {
+                "saveSuccess": "Reference saves successfully"
+            },
+            "dialog":{
+                "title": "Confirm save Reference",
+                "confirm": "Are you sure you want to save this Reference?",
+                "needLogged": "To save a reference you need to be logged in!"
             }
 
         }

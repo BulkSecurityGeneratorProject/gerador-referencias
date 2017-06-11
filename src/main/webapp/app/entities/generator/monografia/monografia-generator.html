@@ -4,13 +4,12 @@
 
         <div class="form-group">
             <label class="control-label" style="width: 100%;" data-translate="geradorReferenciasApp.generator.author.title" for="field_autores">Autores</label>
-            <div ng-repeat="item in vm.monografia.authors" ng-show="vm.monografia.authors.length > 0">
+            <div ng-repeat="item in vm.monografia.autores" ng-show="vm.monografia.autores.length > 0">
                 <input type="text" class="form-control" style="width:75%; display: inline" name="autor"
                     ng-value="item" readonly>
                 <button class="btn glyphicon glyphicon-minus" ng-click="vm.removerAutor($index)"></button>
             </div>
-            <input type="text" class="form-control" name="autores" id="field_autores"
-                    ng-model="vm.monografia.autores" style="width: 75%; display: inline"
+            <input type="text" class="form-control" name="autores" id="field_autores" style="width: 75%; display: inline"
                     readonly/>
             <button class="btn glyphicon glyphicon-plus" ui-sref="autor-new"></button>
         </div>
@@ -88,9 +87,10 @@
             <input type="text" class="form-control" name="volumes" id="field_volumes"
                     ng-model="vm.monografia.volumes"/>
         </div>
-        <div class="form-group" ng-show="vm.isValid(vm.referenciaFormatada)">
+        <div class="form-group" ng-show="vm.isValid(vm.monografia.referenciaFormatada)">
             <label class="control-label" data-translate="geradorReferenciasApp.monografia.formattedReference" for="field_referenciaFormatada"></label>
-            <textarea class="form-control" id="field_referenciaFormatada" name="referenciaFormatada" ng-model="vm.referenciaFormatada" readonly></textarea>
+            <button class="btn btn-primary glyphicon glyphicon-floppy-disk" ui-sref="reference-save"></button>
+            <textarea class="form-control" id="field_referenciaFormatada" name="referenciaFormatada" ng-model="vm.monografia.referenciaFormatada" readonly></textarea>
         <div>
 
         </div>
@@ -100,7 +100,7 @@
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
         </button>
-        <button type="submit" ng-disabled="generatorForm.$invalid || vm.monografia.authors.length == 0" class="btn btn-primary">
+        <button type="submit" ng-disabled="generatorForm.$invalid || vm.monografia.autores.length == 0" class="btn btn-primary">
             <span class="glyphicon glyphicon-book"></span>&nbsp;<span data-translate="entity.action.generate">Generate</span>
         </button>
     </div>

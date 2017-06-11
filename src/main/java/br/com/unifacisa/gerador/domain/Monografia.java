@@ -56,6 +56,9 @@ public class Monografia implements Serializable {
     @Field("user_id")
     private String userId;
 
+    @Field("referencia_formatada")
+    private String referenciaFormatada;
+
     public String getId() {
         return id;
     }
@@ -182,6 +185,14 @@ public class Monografia implements Serializable {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getReferenciaFormatada() {
+        return referenciaFormatada;
+    }
+
+    public void setReferenciaFormatada(String referenciaFormatada) {
+        this.referenciaFormatada = referenciaFormatada;
     }
 
     @Override

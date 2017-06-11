@@ -5,21 +5,27 @@
         .module('geradorReferenciasApp')
         .controller('GeneratorController', GeneratorController);
 
-    GeneratorController.$inject = ['$rootScope'];
+    GeneratorController.$inject = ['$rootScope', 'Principal', 'Monografia', 'LoginService'];
 
-    function GeneratorController($rootScope) {
+    function GeneratorController($rootScope, Principal, Monografia, LoginService) {
 
         var vm = this;
 
         vm.tipoReferencia = "Monografia";
         vm.referenciaFormatada = "";
         vm.monografia = {
-            authors : []
+            autores : []
         }
+        $rootScope.referencia = {};
 
         $rootScope.$watch('authors', function(newValue, oldValue) {
-            vm.monografia.authors = $rootScope.authors;
+            vm.monografia.autores = $rootScope.authors;
         });
+
+        init();
+        function init(){
+            $rootScope.authors = [];
+        }
 
         vm.isValid = function(field){
             if(field == null || field == "" || field == undefined){
@@ -39,13 +45,13 @@
 
             var referenciaFormatada = "";
             //Atores
-            for(var i=0; i<vm.monografia.authors.length; i++){
+            for(var i=0; i<vm.monografia.autores.length; i++){
                 if(i==3){
                     referenciaFormatada += " et al. ";
                     break;
                 }
-                referenciaFormatada += vm.monografia.authors[i];
-                if(!(i == vm.monografia.authors.length-1) && (i < 2)){
+                referenciaFormatada += vm.monografia.autores[i];
+                if(!(i == vm.monografia.autores.length-1) && (i < 2)){
                     referenciaFormatada += "; ";
                 }
             }
@@ -75,12 +81,12 @@
                 referenciaFormatada += " v."+vm.monografia.volumes;
             }
 
-            vm.referenciaFormatada = referenciaFormatada;
-
+            vm.monografia.referenciaFormatada = referenciaFormatada;
+            $rootScope.referencia = vm.monografia;
         }
 
         vm.removerAutor = function(indexElemento){
-            vm.monografia.authors.splice(indexElemento, 1);
+            vm.monografia.autores.splice(indexElemento, 1);
         }
 
     }
